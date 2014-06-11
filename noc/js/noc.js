@@ -232,6 +232,9 @@ app.controller('WidgetsDisplayCtrl', ['$scope', 'BackendPropertyService',
     $scope.widgets[idx - 1] = $scope.widgets[idx];
     $scope.widgets[idx] = tmp;
   };
+  $scope.addClusters = function() {
+    $scope.widgets.push({template: '/partials/clusters.html'});
+  };
 
   $scope.addChart = function() {
     $scope.widgets.push({template: '/partials/default_chart.html'});
@@ -240,6 +243,7 @@ app.controller('WidgetsDisplayCtrl', ['$scope', 'BackendPropertyService',
   $scope.addServers = function() {
     $scope.widgets.push({template: '/partials/servers.html'});
   };
+
 }]);
 
 /* This little controller renders the list of servers */
