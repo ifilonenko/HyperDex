@@ -1,0 +1,23 @@
+<div ng-app="myApp">
+<div ng-controller="ClusterFunc" ng-init="loadPeople()">
+<table>
+    <tr>
+        <th>Cluster ID</th>
+        <th>Version</th>
+        <th>Flags</th>
+        <th>State</th>
+        <th>Cluster Location</th>
+        <th>ID</th>
+    </tr>
+    <tr ng-repeat="cluster in clusters">
+        td>{{ cluster.clusterid }}</td>
+      <td>{{ cluster.version }}</td>
+      <td>{{ cluster.flags }}</td>
+      <td>{{ cluster.state }}</td>
+      <td>{{ cluster.location }}</td>
+      <td>{{ cluster.id }}</td>
+    </tr>
+</table>
+</div>
+</div>
+        

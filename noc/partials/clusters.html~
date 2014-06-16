@@ -1,4 +1,4 @@
- <div ng-controller="ServerListCtrl" ng-init="init(widget.arg)">
+ <div ng-controller="ClusterSomething" ng-init="init(widget.arg)">
   <button type="button" ng-click="open()" class="close"><i class="icon-pencil"></i></button>
   <div class="clearfix"></div>
   <div modal="shouldBeOpen" close="close()" options="opts">
@@ -40,7 +40,7 @@
         <th>Version</th>
         <th>Flags</th>
         <th>State</th>
-        <th>Server Address</th>
+        <th>Cluster Location</th>
         <th>ID</th>
         <th ng-repeat="sparkline in sparklines">
           <i ng-click="expandSparkline($index)" class="icon-search"></i>
@@ -50,14 +50,14 @@
       </tr>
     </thead>
     <tbody>
-    <tr class="{{ classes(server); }}" ng-repeat="server in servers">
-      <td width="0"><i ng-click="expandServer($index);" class="icon-search"></i></td>
-      <td>{{ 125 }}</td>
-      <td>{{ 7 }}</td>
-      <td>{{ 0 }}</td>
-      <td>{{ server.state }}</td>
-      <td>{{ server.location }}</td>
-      <td>{{ server.id }}</td>
+    <tr class="{{ classes(server); }}" ng-repeat="cluster in clusters">
+      <td width="0"><i ng-click="expandServer($index);" class="icon-search" ng-init="loadData()"></i></td>
+      <td>{{ cluster.clusterid }}</td>
+      <td>{{ cluster.version }}</td>
+      <td>{{ cluster.flags }}</td>
+      <td>{{ cluster.state }}</td>
+      <td>{{ cluster.location }}</td>
+      <td>{{ cluster.id }}</td>
       <td ng-repeat="sparkline in sparklines" ng-controller="SparklineChartCtrl"
         ng-init="setup(sparkline.tag, cluster.clusterid)">
         <div chart source="chart"></div>
